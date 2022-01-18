@@ -148,10 +148,10 @@ var rank;
 		if (WebsiteRunOnServer === true)
 		{
 			temp = ReadCookie('LettersFall5-Alpha-Version');
-			if (temp != Version)
+			if (temp !== Version)
 			{
 				CreateCookie('LettersFall5-Alpha-Version', Version, 9999);
-				window.location.reload(true);
+				window.location.reload();//true);
 			}
 		}
     }
@@ -195,7 +195,7 @@ var rank;
 		if (WebsiteRunOnServer === true)
 		{
 			temp = localStorage.getItem("LettersFall5-Alpha-Version");
-			if (temp != Version)
+			if (temp !== Version)
 			{
 				localStorage.setItem("LettersFall5-Alpha-Version", Version);
 				window.location.reload(true);
@@ -321,7 +321,7 @@ var i;
 		if ( Score >= parseInt(HighScoresScore[GameMode][rank]) )  NewHighScoreRank = rank;
     }
 
-    if (NewHighScoreRank != 999)
+    if (NewHighScoreRank !== 999)
     {
 		for (rank = 8; rank > NewHighScoreRank; rank--)
 		{

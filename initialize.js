@@ -132,7 +132,7 @@ function InitSettings()
     screenWidth = 640;
     screenHeight = 480;
 
-    WebsiteRunOnServer = window.location.protocol === 'http:' || window.location.protocol === 'https:';
+//    WebsiteRunOnServer = window.location.protocol === 'http:' || window.location.protocol === 'https:';
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -141,7 +141,7 @@ function AppLostFocus()
     if (AppHasFocus === false)  return;
     AppHasFocus = false; 
 
-    if (ScreenToDisplay > 1 && SoundType != "null" && MusicVolume > 0)  MusicArray[CurrentlyPlayingMusicTrack].pause();
+    if (ScreenToDisplay > 1 && SoundType !== "null" && MusicVolume > 0)  MusicArray[CurrentlyPlayingMusicTrack].pause();
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -150,7 +150,7 @@ function AppGainedFocus()
     if (AppHasFocus === true)  return;
     AppHasFocus = true; 
 
-    if (ScreenToDisplay > 1 && SoundType != "null" && MusicVolume > 0)  MusicArray[CurrentlyPlayingMusicTrack].play();
+    if (ScreenToDisplay > 1 && SoundType !== "null" && MusicVolume > 0)  MusicArray[CurrentlyPlayingMusicTrack].play();
 }
 
 //--------------------------------------------------------------------------------------------------------------
@@ -173,7 +173,8 @@ function Init()
     InitLoaded = true;
   
     var test_canvas = document.createElement("canvas");
-    var canvascheck=(test_canvas.getContext)? true : false;
+    var canvascheck=!!(test_canvas.getContext);
+//    var canvascheck=(test_canvas.getContext)? true : false;
     if (canvascheck === false)  alert("This browser does not support HTML5, get Mozilla Firefox or Google Chrome!");
 
     InitSettings();
@@ -188,9 +189,9 @@ function Init()
         MouseX = Math.floor(event.clientX - rect.left);
         MouseY = Math.floor(event.clientY - rect.top);
 
-        if (BrowserWidth != 640)  MouseX = (  Math.floor( MouseX * (640/BrowserWidth) )  );
+        if (BrowserWidth !== 640)  MouseX = (  Math.floor( MouseX * (640/BrowserWidth) )  );
 
-        if (BrowserHeight != 480)  MouseY = (  Math.floor( MouseY * (480/BrowserHeight) )  );
+        if (BrowserHeight !== 480)  MouseY = (  Math.floor( MouseY * (480/BrowserHeight) )  );
     });
 
     window.addEventListener('resize', BrowserResize, false);

@@ -121,7 +121,7 @@ function DrawAllArrowSets()
 
         ctx.globalAlpha = 1;
 
-        if (ArrowButtonAnimation < 10 || scaleOne != 1 || scaleTwo != 1)
+        if (ArrowButtonAnimation < 10 || scaleOne !== 1 || scaleTwo !== 1)
         {
             ctx.drawImage(  GUIArrowsSprites[0], ((x - (computedCenterXtwo * scaleOne)) - 295), ((y - (computedCenterYtwo * scaleOne)))
             , (GUIArrowsSprites[0].width * scaleOne), (GUIArrowsSprites[0].height * scaleOne)  );
@@ -266,7 +266,7 @@ var index;
 var text;
 var yOffSet;
 var xOffSet;
-var characters = new Array(65);
+var characters //= new Array(65);
 characters = "~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+_";
 
     for (index = 0; index < 7; index++)
@@ -429,7 +429,7 @@ function ThisButtonWasPressed(index)
 
 	var returnValue = false;
 
-	if ( (SpacebarPressed === true/*KeyboardCharacterPressed === "_"*/ || KeyboardCharacterPressed === "/") && ScreenToDisplay != 9)
+	if ( (SpacebarPressed === true/*KeyboardCharacterPressed === "_"*/ || KeyboardCharacterPressed === "/") && ScreenToDisplay !== 9)
 	{
 	    ButtonThatWasSelected = ButtonSelectedByKeyboard;
 	    ButtonSelectedAnimationTimer = 10;
@@ -549,7 +549,7 @@ function ProcessAllIcons()
 			}
 		}
 
-		if (IconAnimationTimer[index] == 5)  ScreenIsDirty = true;
+		if (IconAnimationTimer[index] === 5)  ScreenIsDirty = true;
 		
 		if (IconAnimationTimer[index] > -1)  IconAnimationTimer[index]--;
 	}
@@ -597,12 +597,12 @@ var index;
         if ( MouseX > (arrowOneCenterX - (46/2)) && MouseX < (arrowOneCenterX + (46/2))
         && MouseY > (arrowOneCenterY - (38/2)) && MouseY < (arrowOneCenterY + (38/2)) )
         {
-            return(true);
+            return true;
         }
         else if ( MouseX > (arrowTwoCenterX - (46/2)) && MouseX < (arrowTwoCenterX + (46/2))
         && MouseY > (arrowTwoCenterY - (38/2)) && MouseY < (arrowTwoCenterY + (38/2)) )
         {
-            return(true);
+            return true;
         }
     }
 
@@ -611,7 +611,7 @@ var index;
         if ( MouseX > (GUIButtonScreenX[index] - 125) && MouseX < (GUIButtonScreenX[index] + 125)
         && MouseY > (GUIButtonScreenY[index] - 20) &&  MouseY < (GUIButtonScreenY[index] + 20) )
         {
-            return(true);
+            return true;
         }
     }
 	
@@ -621,9 +621,9 @@ var index;
 		&& MouseY > ( IconScreenY[index] - (ImageSprites[IconSpriteIndex[index]].height/2) ) &&  MouseY < ( IconScreenY[index] + (ImageSprites[IconSpriteIndex[index]].height/2) )  )
 		{
 
-			return(true);
+			return true;
 		}
 	}
 	
-    return(false);
+    return false;
 }

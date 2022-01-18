@@ -378,13 +378,13 @@ var index;
 
     for (index = 0; index < 11; index++)
     {
-	if (SelectedLetterPlayfieldX[index] != -1 && SelectedLetterPlayfieldY[index] != -1)
+	if (SelectedLetterPlayfieldX[index] !== -1 && SelectedLetterPlayfieldY[index] !== -1)
 	    playerWordToCheck += String.fromCharCode( 96 + Playfield[ SelectedLetterPlayfieldX[index] ][ SelectedLetterPlayfieldY[index] ] );
 	else  break;
     }
 
     index = 0;
-    while (currentDictionaryWord != "1")
+    while (currentDictionaryWord !== "1")
     {
         if      (Playfield[ SelectedLetterPlayfieldX[0] ][ SelectedLetterPlayfieldY[0] ] ===  1)  currentDictionaryWord = Awords[index];
         else if (Playfield[ SelectedLetterPlayfieldX[0] ][ SelectedLetterPlayfieldY[0] ] ===  2)  currentDictionaryWord = Bwords[index];
@@ -413,12 +413,12 @@ var index;
         else if (Playfield[ SelectedLetterPlayfieldX[0] ][ SelectedLetterPlayfieldY[0] ] === 25)  currentDictionaryWord = Ywords[index];
         else if (Playfield[ SelectedLetterPlayfieldX[0] ][ SelectedLetterPlayfieldY[0] ] === 26)  currentDictionaryWord = Zwords[index];
 
-        if (currentDictionaryWord === playerWordToCheck)  return(true);
+        if (currentDictionaryWord === playerWordToCheck)  return true;
 
         index++;
     }
 
-    return(false);
+    return false;
 }
 
 //-------------------------------------------------------------------------------------------------
@@ -439,7 +439,7 @@ var index;
     var wordLength = 0;
     for (index = 0; index < 11; index++)
     {
-        if (SelectedLetterPlayfieldX[index] != -1 && SelectedLetterPlayfieldY[index] != -1)  wordLength++;
+        if (SelectedLetterPlayfieldX[index] !== -1 && SelectedLetterPlayfieldY[index] !== -1)  wordLength++;
     }
 
     Score+=( 25*wordLength*(Level+1) );
@@ -480,7 +480,7 @@ var index;
 
     for (index = 0; index < 11; index++)
     {
-        if (SelectedLetterPlayfieldX[index] != -1 && SelectedLetterPlayfieldY[index] != -1)
+        if (SelectedLetterPlayfieldX[index] !== -1 && SelectedLetterPlayfieldY[index] !== -1)
             Playfield[ SelectedLetterPlayfieldX[index] ][ SelectedLetterPlayfieldY[index] ] = 0;
     }
 }
@@ -488,7 +488,7 @@ var index;
 //-------------------------------------------------------------------------------------------------
 function RunGameplayEngine()
 {
-var movementY = 0;
+var movementY //= 0;
 var index;
 
     if (FallingLetters[0] === 255)  movementY = 1;
@@ -618,7 +618,7 @@ var index;
         var indexToUndo = 0;
         for (index = 0; index < 11; index++)
         {
-            if (SelectedLetterPlayfieldX[index] != -1 && SelectedLetterPlayfieldY[index] != -1)
+            if (SelectedLetterPlayfieldX[index] !== -1 && SelectedLetterPlayfieldY[index] !== -1)
                 indexToUndo = index;
             else  index = 999;
         }
@@ -920,7 +920,7 @@ var index;
 
             if (MouseButtonClicked === true)
             {
-                if (BombButtonScale === 1 && NextLetters[0] != 255)
+                if (BombButtonScale === 1 && NextLetters[0] !== 255)
                 {
                     PlaySoundEffect(6);
 
@@ -934,7 +934,7 @@ var index;
         if (  MouseY > ( 406 - (30/2) )
         && MouseY < ( 406 + (30/2) )
         && MouseX > ( 550 - (85/2) )
-        && MouseX < ( 550 + (85/2) ) && SelectedLetterPlayfieldX[1] != -1 && SelectedLetterPlayfieldY[1] != -1  )
+        && MouseX < ( 550 + (85/2) ) && SelectedLetterPlayfieldX[1] !== -1 && SelectedLetterPlayfieldY[1] !== -1  )
         {
             CursorIsArrow = false;
 
@@ -955,7 +955,7 @@ var index;
         if (  MouseY > ( 457 - (46/2) )
         && MouseY < ( 457 + (46/2) )
         && MouseX > ( 496 - (35/2) )
-        && MouseX < ( 496 + (35/2) ) && SelectedLetterPlayfieldX[0] != -1 && SelectedLetterPlayfieldY[0] != -1  )
+        && MouseX < ( 496 + (35/2) ) && SelectedLetterPlayfieldX[0] !== -1 && SelectedLetterPlayfieldY[0] !== -1  )
         {
             CursorIsArrow = false;
 
@@ -976,7 +976,7 @@ var index;
         if (  MouseY > ( 457 - (44/2) )
         && MouseY < ( 457 + (44/2) )
         && MouseX > ( 598 - (44/2) )
-        && MouseX < ( 598 + (44/2) ) && SelectedLetterPlayfieldX[2] != -1 && SelectedLetterPlayfieldY[2] != -1  )
+        && MouseX < ( 598 + (44/2) ) && SelectedLetterPlayfieldX[2] !== -1 && SelectedLetterPlayfieldY[2] !== -1  )
         {
             CursorIsArrow = false;
 

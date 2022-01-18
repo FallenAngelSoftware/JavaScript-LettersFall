@@ -335,8 +335,8 @@ function DrawSpriteOntoCanvas(index, x, y, scaleX, scaleY, rotationDegree, alpha
     if (scaleX === 0 || scaleY === 0)  return;
     
     var imageToDraw;
-    var imageToDrawWidth = 0;
-    var imageToDrawHeight = 0;
+    var imageToDrawWidth //= 0;
+    var imageToDrawHeight //= 0;
     
     if (index < 101 || index > 166)
     {

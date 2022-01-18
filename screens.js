@@ -120,9 +120,9 @@ function GameLoop()
     
     if (DEBUG === true)  ScreenIsDirty = true;
 	
-	CursorIsArrow = true;
+
 		
-	if (MouseOnGUI() === true)  CursorIsArrow = false;
+	CursorIsArrow = MouseOnGUI() !== true;
 	
     if (ScreenToDisplay === 0)  DisplayLoadingNowScreen();
     else if (ScreenToDisplay === 1)  Display1stRunAudioOption();
@@ -224,7 +224,7 @@ var index;
 
         for (index = 0; index < NumberOfSprites; index++)
         {
-            if (ImageSprites[index].src != '')
+            if (ImageSprites[index].src !== '')
             {
             if (ImageSprites[index].complete === false)  allResourcesLoaded = false;
             else  LoadTimer++;
@@ -488,7 +488,7 @@ function DisplayTitleScreen()
     
     if (ScreenFadeAlpha === .99 && ScreenFadeStatus === 1)
     {
-        if (NextScreenToDisplay === -1)  window.open('http://fallenangelsoftware.com','_self');
+        if (NextScreenToDisplay === -1)  window.open('https://fallenangelsoftware.com','_self');
     }
 }
 
@@ -1044,7 +1044,7 @@ var index;
         var screenX = 27;
         for (index = 0; index < 11; index++)
         {
-        if (SelectedLetterPlayfieldX[index] != -1 && SelectedLetterPlayfieldY[index] != -1)
+        if (SelectedLetterPlayfieldX[index] !== -1 && SelectedLetterPlayfieldY[index] !== -1)
         {
             DrawSpriteOntoCanvas(100+Playfield[SelectedLetterPlayfieldX[index]][SelectedLetterPlayfieldY[index]], screenX, 457, 1, 1, 0, ClearWordTransparency, 255, 255, 255);
         }
@@ -1107,17 +1107,17 @@ var index;
         DrawSpriteOntoCanvas(62, 605, 336, RightArrowScale, RightArrowScale, 0, 1, 255, 255, 255);
         }
 
-        if (SelectedLetterPlayfieldX[1] != -1 && SelectedLetterPlayfieldY[1] != -1)
+        if (SelectedLetterPlayfieldX[1] !== -1 && SelectedLetterPlayfieldY[1] !== -1)
         {
             DrawSpriteOntoCanvas(70, 550, 406, ClearButtonScale, ClearButtonScale, 0, 1, 255, 255, 255);
         }
 
-        if (SelectedLetterPlayfieldX[0] != -1 && SelectedLetterPlayfieldY[0] != -1)
+        if (SelectedLetterPlayfieldX[0] !== -1 && SelectedLetterPlayfieldY[0] !== -1)
         {
             DrawSpriteOntoCanvas(71, 496, 457, UndoButtonScale, UndoButtonScale, 0, 1, 255, 255, 255);
         }
 
-        if (SelectedLetterPlayfieldX[2] != -1 && SelectedLetterPlayfieldY[2] != -1)
+        if (SelectedLetterPlayfieldX[2] !== -1 && SelectedLetterPlayfieldY[2] !== -1)
         {
             DrawSpriteOntoCanvas(72, 598, 457, CheckButtonScale, CheckButtonScale, 0, 1, CheckButtonRedHue, CheckButtonGreenHue, CheckButtonBlueHue);
         }
@@ -1163,7 +1163,7 @@ function DisplayNewHighScoreNameInputScreen()
 {
 var screenX;
 var index;
-var characters = new Array(65);
+var characters //= new Array(65);
 characters = "~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+_";
 
     if (ScreenFadeAlpha === 1 && ScreenFadeStatus === 0)
@@ -1272,7 +1272,7 @@ characters = "~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+_"
         }
     }
 
-    if (KeyboardCharacterPressed != "")
+    if (KeyboardCharacterPressed !== "")
     {
 		if (KeyboardCharacterPressed === "/")   ScreenFadeStatus = 1;
 		else if (KeyboardCharacterPressed === "=")
@@ -1315,7 +1315,7 @@ characters = "~ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+_"
         DrawTextOntoCanvas(20, "You achieved a new high score!", 320, 60, "center", 255, 255, 255, 0, 0, 0, 1);
         DrawTextOntoCanvas(20, "Please enter your name using the mouse or keyboard:", 320, 85, "center", 255, 255, 255, 0, 0, 0, 1);
 
-        if (NewHighScoreTempName[0] != "")  DrawTextOntoCanvas(55, ""+NewHighScoreTempName+"", 320, 148, "center", 255, 255, 255, 0, 0, 0, 1);
+        if (NewHighScoreTempName[0] !== "")  DrawTextOntoCanvas(55, ""+NewHighScoreTempName+"", 320, 148, "center", 255, 255, 255, 0, 0, 0, 1);
 
         for (index = 1; index < 67; index++)
         {
